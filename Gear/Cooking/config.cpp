@@ -1,10 +1,8 @@
 class CfgPatches
 {
-	class Deadly_Textures_Cooking // Your mod name followed by the main folder name - DO NOT HAVE DUPLICATE NAMES IF YOU HAVE MULTIPLE CONFIGS
-	{
+	class Deadly_Textures_Cooking 
 		weapons[] = {};
 		requiredVersion = 0.1;
-		// Below are the required addons that this config needs specifically
 		requiredAddons[] = 
 		{
 			"DZ_Data"
@@ -32,4 +30,5 @@ class CfgVehicles
 			"Deadly_Textures\Gear\cooking\Data\Deadly_Witch_cauldron_co.paa"
 		};
 	};
+
 };
