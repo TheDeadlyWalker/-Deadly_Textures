@@ -4,7 +4,10 @@ class CfgPatches
 	{
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"DZ_Data"};
+		requiredAddons[] = 
+		{
+		"DZ_Data"
+		};
 		units[] = {};
 	};
 };
@@ -29,3 +32,4 @@ class CfgVehicles
 		};
 	};
 };
+
