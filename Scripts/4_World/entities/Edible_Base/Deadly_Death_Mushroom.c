@@ -2,27 +2,23 @@ class Deadly_Death_Mushroom: MushroomBase
 {
     protected bool m_EffectsQueued;
 
-    // Guard against zero-quantity on spawn (CE/admin tools)
     override void EEInit()
     {
         super.EEInit();
         if (!GetGame() || !GetGame().IsServer()) return;
 
-        // Immediate guard
         if (GetQuantity() <= 0.001)
         {
             float maxQ = GetQuantityMax();
-            if (maxQ <= 0) maxQ = 150.0; // fallback if config is odd
+            if (maxQ <= 0) maxQ = 150.0;
             SetQuantity(maxQ);
         }
 
-        // One-tick delayed guard (catches tools that set qty after init)
         GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(
             Deadly_Death_Mushroom.PostInitQuantityGuard_Static, 0, false, new Param1<ItemBase>(this)
         );
     }
 
-    // Runs just after init; ensures we never stay at zero qty
     static void PostInitQuantityGuard_Static(Param1<ItemBase> p)
     {
         ItemBase ib = ItemBase.Cast(p.param1);
@@ -42,7 +38,6 @@ class Deadly_Death_Mushroom: MushroomBase
         super.OnConsume(amount, consumer);
         if (!GetGame() || !GetGame().IsServer() || !consumer) return;
 
-        // After super(), qty has been reduced for this bite
         if (!m_EffectsQueued && GetQuantity() <= 0.001)
         {
             m_EffectsQueued = true;
@@ -62,7 +57,6 @@ class Deadly_Death_Mushroom: MushroomBase
         }
     }
 
-    // ---- Helpers ----
 
     static void ApplyHealthPercentDamage_Static(Param2<PlayerBase, float> p)
     {
