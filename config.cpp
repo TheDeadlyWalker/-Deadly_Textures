@@ -46,7 +46,7 @@ class CfgLiquidDefinitions
 {
 	class Liquid_Healing_Tea
 	{
-		type=615;	// integer from constants.c
+		type=615;
 		displayName="Healing Tea";
 		flammability=30;
 		liquidBoilingThreshold=150;
@@ -62,7 +62,7 @@ class CfgLiquidDefinitions
 	};
 		class Liquid_Energy_Tea
 	{
-		type=616;	// integer from constants.c
+		type=616;
 		displayName="Energy Tea";
 		flammability=30;
 		liquidBoilingThreshold=150;
@@ -78,7 +78,7 @@ class CfgLiquidDefinitions
 	};
 		class Liquid_Antibiotic_Tea
 	{
-		type=617;	// integer from constants.c
+		type=617;
 		displayName="Antibiotic Tea";
 		flammability=30;
 		liquidBoilingThreshold=150;
@@ -94,7 +94,7 @@ class CfgLiquidDefinitions
 	};
 		class Liquid_Death_Tea
 	{
-		type=618;	// integer from constants.c
+		type=618;
 		displayName="Liquid Death";
 		flammability=30;
 		liquidBoilingThreshold=150;
