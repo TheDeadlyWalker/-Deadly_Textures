@@ -7,7 +7,7 @@ class Deadly_PoisonApple : Apple
 
 		if (GetGame().IsServer())
 		{
-			DeadlyKOManager.Start(consumer); // hands off to the timer-driven manager
+			DeadlyKOManager.Start(consumer);
 		}
 	}
 };
