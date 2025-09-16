@@ -6,7 +6,7 @@ class PPERequester_DMSPsyTrip extends PPERequesterBase
     protected const int MAT_RBLUR   = PostProcessEffectType.RadialBlur;
     protected const int MAT_CHROMA  = PostProcessEffectType.ChromAber;
 
-    // Built-in timing (per your request)
+    // Built-in timing
     protected const int COLOR_DELAY_MS = 1000; // wait ~1s before color starts
     protected const int COLOR_RAMP_MS  = 400;  // ease color in over 0.4s
     protected const int RELEASE_MS     = 5000; // smooth 5s release before final fade
@@ -17,9 +17,9 @@ class PPERequester_DMSPsyTrip extends PPERequesterBase
     protected float m_ColorIntensity;   // overlay factor (0..1, lower = more transparent)
     protected bool  m_Running;
 
-    protected int   m_TotalMs;          // main duration (before release)
-    protected int   m_ElapsedMs;        // elapsed in main
-    protected float m_T;                // 0..1 progress of main
+    protected int   m_TotalMs;          
+    protected int   m_ElapsedMs;        
+    protected float m_T;                
 
     protected bool  m_InRelease;
     protected int   m_ReleaseElapsed;
