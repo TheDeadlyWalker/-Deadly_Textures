@@ -2,7 +2,7 @@ class CfgPatches
 {
 	class Deadly_Textures_Headgear
 	{
-		weapons[] = {};
+		units[] = {};
 		requiredVersion = 0.1;
 		requiredAddons[] = 
 		{
@@ -10,7 +10,6 @@ class CfgPatches
 			"DZ_Characters",
 			"DZ_Characters_Headgear"
 		};
-		units[] = {};
 	};
 };
 class CfgVehicles
@@ -73,4 +72,3 @@ class CfgVehicles
 
 	};			
 };
-
