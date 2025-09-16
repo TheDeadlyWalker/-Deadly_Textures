@@ -7,7 +7,7 @@ static const int LIQUID_ANTIBIOTICS_TEA  = 617;
 static const int LIQUID_DEATH_TEA        = 618; // NEW
 
 // ---------- Energy Tea: stamina regen "buff" ----------
-static const float ENERGY_TEA_REGEN_DURATION_S = 30.0; // buff duration (seconds)
+static const float ENERGY_TEA_REGEN_DURATION_S = 30.0; // buff duration
 static const float ENERGY_TEA_REGEN_TICK_SEC   = 0.25; // tick interval
 static const float ENERGY_TEA_REGEN_PER_SEC    = 12.0; // extra stamina per second
 
@@ -30,7 +30,7 @@ modded class Bottle_Base
         {
             float add = ENERGY_TEA_REGEN_PER_SEC * ENERGY_TEA_REGEN_TICK_SEC;
 
-            // Safe path: SetStamina with cap (works on all builds)
+            // Safe path: SetStamina with cap
             float cur = sh.GetStamina();
             float cap = sh.GetStaminaCap();
             sh.SetStamina(Math.Min(cap, cur + add));
@@ -62,7 +62,7 @@ modded class Bottle_Base
         // ---- Healing Tea (615): heals on sip ----
         if (lt == LIQUID_HEALING_TEA)
         {
-            float m = amount / 50.0; // 50 ml baseline sip
+            float m = amount / 50.0; 
             consumer.AddHealth("", "Health", 1.5 * m);
             consumer.AddHealth("", "Blood",  10.0 * m);
             consumer.AddHealth("", "Shock",  1.0 * m);
@@ -80,18 +80,16 @@ modded class Bottle_Base
             if (!s_EnergyTeaTimers.Find(consumer, t))
             {
                 t = new Timer(CALL_CATEGORY_GAMEPLAY);
-                // run on 'this' (Managed) calling our method
                 t.Run(ENERGY_TEA_REGEN_TICK_SEC, this, "EnergyTea_Regen_Tick", new Param1<PlayerBase>(consumer), true);
                 s_EnergyTeaTimers.Set(consumer, t);
             }
         }
-        // ---- Antibiotics Tea (617): apply the same modifier as tetracycline ----
+        // ---- Antibiotics Tea (617)
         else if (lt == LIQUID_ANTIBIOTICS_TEA)
         {
             ModifiersManager mm = consumer.GetModifiersManager();
             if (mm)
             {
-                // If your build uses a different enum, change this to match (e.g., MDF_TETRACYCLINE).
                 mm.ActivateModifier(eModifiers.MDF_ANTIBIOTICS);
             }
         }
@@ -102,13 +100,8 @@ modded class Bottle_Base
             float curBlood = consumer.GetHealth("", "Blood");
             float loss     = curBlood * 0.5;
             consumer.AddHealth("", "Blood", -loss);
-
-            // Force KO by zeroing shock (unconsciousness is driven by Shock)
-            // This does NOT create bleeding.
             consumer.SetHealth("", "Shock", 0.0);
-
-            // Optional: if you want a harder/longer KO, also apply an extra negative shock hit
-            // consumer.AddHealth("", "Shock", -100.0); // uncomment if needed after testing
         }
     }
+
 };
