@@ -1,12 +1,15 @@
 class CfgPatches
 {
-	class Deadly_Textures_Vests // Your mod name followed by the main folder name - DO NOT HAVE DUPLICATE NAMES IF YOU HAVE MULTIPLE CONFIGS
+	class Deadly_Textures_Vests
 	{
-		weapons[] = {};
-		requiredVersion = 0.1;
-		// Below are the required addons that this config needs specifically
-		requiredAddons[] = {"DZ_Data","DZ_Characters","DZ_Characters_Vests"};
 		units[] = {};
+		requiredVersion = 0.1;
+		requiredAddons[] = 
+		{
+		"DZ_Data",
+		"DZ_Characters",
+		"DZ_Characters_Vests"
+		};
 	};
 };
 class CfgVehicles
@@ -27,4 +30,5 @@ class CfgVehicles
 			"Deadly_Textures\Characters\vests\data\PunisherVest_co.paa"
 		};
 	};
+
 };	
