@@ -6,7 +6,7 @@ class CfgPatches
         {
             "Deadly_Psychedelic_Mushroom",
             "Deadly_Poisonous_Mushroom",
-             "Deadly_Antibiotic_Mushroom",
+            "Deadly_Antibiotic_Mushroom",
             "Deadly_Death_Mushroom",
             "Deadly_PoisonApple"
         };
