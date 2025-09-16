@@ -56,7 +56,6 @@ class DeadlyKOManager
 		if (!player) return;
 		if (!s_Tasks) s_Tasks = new array<ref DeadlyKOTask>();
 
-		// Optionally: avoid stacking multiple tasks on the same player
 		if (HasActiveTaskFor(player)) return;
 
 		s_Tasks.Insert(new DeadlyKOTask(player));
