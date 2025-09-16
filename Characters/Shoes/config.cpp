@@ -1,12 +1,15 @@
 class CfgPatches
 {
-	class Deadly_Textures_Shoes // Your mod name followed by the main folder name - DO NOT HAVE DUPLICATE NAMES IF YOU HAVE MULTIPLE CONFIGS
+	class Deadly_Textures_Shoes
 	{
-		weapons[] = {};
-		requiredVersion = 0.1;
-		// Below are the required addons that this config needs specifically
-		requiredAddons[] = {"DZ_Data","DZ_Characters","DZ_Characters_Shoes"};
 		units[] = {};
+		requiredVersion = 0.1;
+		requiredAddons[] = 
+		{
+		"DZ_Data",
+		"DZ_Characters",
+		"DZ_Characters_Shoes"
+		};
 	};
 };
 class CfgVehicles
