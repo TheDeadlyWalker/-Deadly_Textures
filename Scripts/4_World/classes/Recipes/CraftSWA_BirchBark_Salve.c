@@ -10,7 +10,7 @@ class CraftSWA_BirchBark_Salve extends RecipeBase
 		// Ingredient 0
 		m_MinDamageIngredient[0] = -1;
 		m_MaxDamageIngredient[0] = -1;
-		m_MinQuantityIngredient[0] = 4;   // require >= 4 in the stack
+		m_MinQuantityIngredient[0] = 4;
 		m_MaxQuantityIngredient[0] = -1;
 
 		// Ingredient 1
@@ -19,12 +19,11 @@ class CraftSWA_BirchBark_Salve extends RecipeBase
 		m_MinQuantityIngredient[1] = -1;
 		m_MaxQuantityIngredient[1] = -1;
 
-		// Ingredient 0: Birch Bark (must be a stack with >= 4)
 		InsertIngredient(0, "Bark_Birch");
 		m_IngredientAddHealth[0] = 0;
 		m_IngredientSetHealth[0] = -1;
-		m_IngredientAddQuantity[0] = -4;  // consume 4 from the stack
-		m_IngredientDestroy[0] = false;   // don't destroy the whole stack
+		m_IngredientAddQuantity[0] = -4;
+		m_IngredientDestroy[0] = false;
 		m_IngredientUseSoftSkills[0] = false;
 
 		// Ingredient 1:
@@ -32,7 +31,7 @@ class CraftSWA_BirchBark_Salve extends RecipeBase
 		m_IngredientAddHealth[1] = 0;
 		m_IngredientSetHealth[1] = -1;
 		m_IngredientAddQuantity[1] = 0;
-		m_IngredientDestroy[1] = true;    // destroy the mushroom
+		m_IngredientDestroy[1] = true;
 		m_IngredientUseSoftSkills[1] = false;
 
 		// ----- RESULT -----
