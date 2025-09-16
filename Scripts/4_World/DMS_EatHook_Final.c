@@ -6,7 +6,7 @@ class DMS_Final
 
     static void MaybeTrip(PlayerBase pl, ItemBase item, string itemType)
     {
-        if (!GetGame().IsClient()) return;   // hard-stop on server
+        if (!GetGame().IsClient()) return;   
         if (!pl) return;
         if (itemType != TARGET) return;
 
@@ -31,13 +31,12 @@ class DMS_Final
 
     static void StartTrip(string reason)
     {
-        if (!GetGame().IsClient()) return;   // client-only effect
+        if (!GetGame().IsClient()) return;   
 
         PPERequester_DMSPsyTrip req;
         Class.CastTo(req, PPERequesterBank.GetRequester(PPERequester_DMSPsyTrip));
         if (!req) return;
 
-        // 60s, 50ms tick, transparent color, gentle blur, tiny chroma, 1.2s final fade
         req.StartTrip(60000, 50, 0.20, 0.34, 0.0035, 1200);
     }
 }
