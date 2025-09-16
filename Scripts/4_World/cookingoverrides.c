@@ -4,21 +4,21 @@ modded class Cooking
     static const int   LIQUID_HEALING_TEA     = 615;
     static const int   LIQUID_ENERGY_TEA      = 616;
     static const int   LIQUID_ANTIBIOTICS_TEA = 617;
-    static const int   LIQUID_DEATH_TEA       = 618;  // NEW
-    static const float TEA_COOK_THRESHOLD     = 40.0; // ~1 minute; tune as needed
+    static const int   LIQUID_DEATH_TEA       = 618; 
+    static const float TEA_COOK_THRESHOLD     = 40.0; 
 
     // --- Mushroom class names ---
     static const string CLASS_HEALING_MUSHROOM     = "Deadly_Psychedelic_Mushroom";
     static const string CLASS_ENERGY_MUSHROOM      = "Deadly_Poisonous_Mushroom";
     static const string CLASS_ANTIBIOTIC_MUSHROOM  = "Deadly_Antibiotic_Mushroom";
-    static const string CLASS_DEATH_MUSHROOM       = "Deadly_Death_Mushroom"; // NEW
+    static const string CLASS_DEATH_MUSHROOM       = "Deadly_Death_Mushroom"; 
 
     // --- Internal recipe codes ---
     static const int RECIPE_NONE         = 0;
     static const int RECIPE_HEALING      = 1; // -> 615
     static const int RECIPE_ENERGY       = 2; // -> 616
     static const int RECIPE_ANTIBIOTICS  = 3; // -> 617
-    static const int RECIPE_DEATH        = 4; // -> 618 (NEW)
+    static const int RECIPE_DEATH        = 4; // -> 618
 
     // Track per-pot state
     static ref map<EntityAI, float> s_TeaProgress    = new map<EntityAI, float>();
@@ -61,7 +61,7 @@ modded class Cooking
         {
             recipe = GetAvailableRecipe(pot);
             if (recipe != RECIPE_NONE)
-                s_PendingRecipe.Set(pot, recipe); // lock recipe so it can't swap mid-boil
+                s_PendingRecipe.Set(pot, recipe);
         }
 
         if (recipe == RECIPE_NONE)
@@ -93,13 +93,13 @@ modded class Cooking
                 else if (recipe == RECIPE_ANTIBIOTICS)
                     target_liquid = LIQUID_ANTIBIOTICS_TEA;
                 else
-                    target_liquid = LIQUID_DEATH_TEA; // NEW
+                    target_liquid = LIQUID_DEATH_TEA;
 
                 pot.SetLiquidType(target_liquid);
-                pot.SetQuantity(pot.GetQuantityMax()); // optional: fill fully
+                pot.SetQuantity(pot.GetQuantityMax());
             }
 
-            ResetPotState(pot); // clear progress & recipe regardless
+            ResetPotState(pot); 
         }
 
         return result;
@@ -110,8 +110,6 @@ modded class Cooking
     // --------------------
     protected int GetAvailableRecipe(EntityAI pot)
     {
-        // Priority order (top wins if multiple shrooms are present):
-        // Healing -> Energy -> Antibiotics -> Death. Adjust to taste.
         if (HasMushroomClassInPot(pot, CLASS_HEALING_MUSHROOM))
             return RECIPE_HEALING;
         if (HasMushroomClassInPot(pot, CLASS_ENERGY_MUSHROOM))
@@ -231,4 +229,5 @@ modded class Cooking
         }
         return false;
     }
+
 };
